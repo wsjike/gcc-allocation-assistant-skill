@@ -1,0 +1,66 @@
+{
+  "name": "gcc-allocation-assistant",
+  "version": "1.0.0",
+  "description": "GCC 资金分配助手 - 里程碑验证、自动支付、进度追踪",
+  "author": {
+    "name": "maxbay",
+    "email": "xcbai25@stu.pku.edu.cn"
+  },
+  "license": "MIT",
+  "keywords": ["gcc", "allocation", "funding", "milestone", "payment"],
+  "categories": ["allocation", "productivity"],
+  "entry": "src/index.py",
+  "tools": [
+    {
+      "name": "create_project",
+      "description": "创建资助项目",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "applicant": {"type": "string"},
+          "total_funding": {"type": "number"},
+          "milestones": {"type": "array"}
+        },
+        "required": ["name", "applicant", "total_funding", "milestones"]
+      }
+    },
+    {
+      "name": "submit_milestone",
+      "description": "提交里程碑完成",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "project_id": {"type": "string"},
+          "milestone_id": {"type": "string"},
+          "evidence": {"type": "array"}
+        },
+        "required": ["project_id", "milestone_id", "evidence"]
+      }
+    },
+    {
+      "name": "get_progress_report",
+      "description": "获取项目进度报告",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "project_id": {"type": "string"}
+        },
+        "required": ["project_id"]
+      }
+    },
+    {
+      "name": "check_risks",
+      "description": "检查项目风险",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "project_id": {"type": "string"}
+        },
+        "required": ["project_id"]
+      }
+    }
+  ],
+  "config": {},
+  "dependencies": {"python": ">=3.8", "packages": []}
+}
